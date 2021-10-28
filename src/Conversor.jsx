@@ -38,9 +38,19 @@ export default class Conversor extends Component {
         return (
             <form onSubmit={ this.handleSubmit } className="conversor" id="conversor">
 
+                
                 <h2>{ this.props.currency1 } to { this.props.currency2 }</h2>
-                <input type="text" onChange={ this.handleChange } />
-                <input type="text" value={this.state.currency2_value} disabled />
+
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">R$</span>
+                    <input type="text" class="form-control" placeholder="" onChange={ this.handleChange } />
+                </div>
+
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">U$</span>
+                    <input type="text" class="form-control" placeholder="" value={this.state.currency2_value} disabled />
+                </div>
+
                 <input type="submit" id="submit" hidden />
             </form>
         )
