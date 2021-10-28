@@ -11,10 +11,12 @@ export default class Conversor extends Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        
     }
 
     handleChange = event => {
         this.setState({currency1_value: event.target.value})
+        document.getElementById('submit').click()
     }
 
     handleSubmit = event => {
@@ -28,20 +30,18 @@ export default class Conversor extends Component {
             this.setState({ currency2_value })
          })
 
-        
-        console.log(this.state.currency2_value)
-        document.getElementById("result").value = this.state.currency2_value
         event.preventDefault();
     }
 
 
     render () {
         return (
-            <form onSubmit={ this.handleSubmit } className="conversor">
+            <form onSubmit={ this.handleSubmit } className="conversor" id="conversor">
+
                 <h2>{ this.props.currency1 } to { this.props.currency2 }</h2>
                 <input type="text" onChange={ this.handleChange } />
-                <input type="text" id="result" disabled />
-                <input type="submit" />
+                <input type="text" value={this.state.currency2_value} disabled />
+                <input type="submit" id="submit" hidden />
             </form>
         )
     }

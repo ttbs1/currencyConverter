@@ -3,7 +3,7 @@ import Conversor from './Conversor';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App-header">
       <header>
         <Conversor currency1="BRL" currency2="USD" />
       </header>
